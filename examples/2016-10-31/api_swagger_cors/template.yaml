@@ -17,15 +17,15 @@ Resources:
             Name: 'AWS::Include'
             # Replace <bucket> with your bucket name
             Parameters:
-              Location: s3://<bucket>/swagger.yaml
+              Location: s3://sam-demo-scott/apicors/swagger.yaml
 
   LambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
       # Replace <bucket> with your bucket name
-      CodeUri: s3://<bucket>/api_swagger_cors.zip
+      CodeUri: s3://sam-demo-scott/apicors/api_swagger_cors.zip
       Handler: index.handler
-      Runtime: nodejs6.10
+      Runtime: nodejs10.x
       Events:
         ProxyApiRoot:
           Type: Api
